@@ -31,8 +31,10 @@ Vous perdez lorsque vous n’avez plus d’argent.
 
 ## Nomenclature des *commits*
 
+**Add** : Ajout d'une ou plusieurs fonctionnalités.
 **Update** : Mise à jour majeure, correctif majeur... \
-**Fix** : Mise à jour mineure, correctif de bug mineur...
+**Fix** : Mise à jour mineure, correctif de bug mineur... \
+**Docs** : Mise à jour de la documentation.
 
 ## Licence
 

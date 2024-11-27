@@ -2,6 +2,7 @@
 #define CASE_H
 
 #include <string>
+#include <vector>
 
 // Représente une case générique.
 class Case
@@ -31,7 +32,8 @@ public:
 class Gare : protected Case
 {
 private:
-    enum m_direction {
+    enum m_direction
+    {
         Nord,
         Sud,
         Est,
@@ -54,7 +56,8 @@ public:
 class Compagnie : protected Case
 {
 private:
-    enum m_service{
+    enum m_service
+    {
         Eau,
         Electricite
     };
@@ -76,22 +79,24 @@ class Terrains : protected Case
 {
 private:
     std::string m_adresse;
-    enum m_couleur{
+    enum m_couleur
+    {
         Fushia,
-        BleuClaire,
+        Bleu_Claire,
         Violet,
         Orange,
         Rouge,
         Jaune,
         Vert,
-        BleuFonce
+        Bleu_Fonce
     };
     int m_prix;
-    enum m_niveau{
-        terrainNu,
-        UneMaison,
-        DeuxMaisons,
-        TroisMaisons,
+    enum m_niveau
+    {
+        terrain_nu,
+        Une_maison,
+        Deux_maisons,
+        Trois_maisons,
         Hotel
     };
 
@@ -120,8 +125,9 @@ public:
 
 class Evenement : protected Case
 {
-private:
-    enum m_categorieEvenement{
+protected:
+    enum m_categorieEvenement
+    {
         Communaute,
         Prison,
         ParkingGratuit,
@@ -142,45 +148,92 @@ public:
 class Communaute : protected Evenement
 {
 private:
-    std::string m_instruction;
+    std::vector<std::string> m_instruction;
 
 public:
     // Fonction exécutant l'instruction marqué sur la case
     std::string faireInstruction();
 
     // Constructeur
-    Communaute(int idCase, std::string categorie, int niveauTaxe, std::string categorieEvenement);
+    Communaute(int idCase, std::string categorie, int niveauTaxe, m_categorieEvenement categorieEvenement, std::vector<std::string> instruction);
 
     // Getters et Setters
-    void setInstruction(std::string instruction);
-    std::string getInstruction() const;
+    void setInstruction(std::vector<std::string> instruction);
+    std::vector<std::string> getInstruction() const;
 };
-
-// To Do
 
 class Prison : protected Evenement
 {
+private:
+    int m_nbrTourPrison;
 
+public:
+    // Fonctions permettant de raccourcir la peine de prison
+    int payerAmende();
+    int passerTour();
+    int utiliseCarte();
+
+    // Constructeur
+    Prison(int idCase, std::string categorie, int niveauTaxe, m_categorieEvenement categorieEvenement, int m_nbrTourPrison);
+
+    // Getters et Setters
+    void setNbrTourPrison(int m_nbrTourPrison);
+    int getNbrTourPrison() const;
 };
 
 class ParkingGratuit : protected Evenement
 {
+private:
+    int m_montantPlateau;
 
+public:
+    int donnerArgent();
+
+    // Constructeur
+    ParkingGratuit(int idCase, std::string categorie, int niveauTaxe, m_categorieEvenement categorieEvenement, int montantPlateau);
+
+    // Getters et Setters
+    void setMontantPlateau(int m_montantPlateau);
+    int getMontantPlateau() const;
 };
 
 class Chance : protected Evenement
 {
+private:
+    std::vector<std::string> m_instructionChance;
 
+public:
+    std::string faireInstructionChance();
+
+    // Constructeur
+    Chance(int idCase, std::string categorie, int niveauTaxe, m_categorieEvenement categorieEvenement, std::vector<std::string> instructionChance);
+
+    // Getters et Setters
+    void setInstructionChance(std::vector<std::string> instructionChance);
+    std::vector<std::string> getInstructionChance() const;
 };
 
 class TaxeDeLuxe : protected Evenement
 {
+private:
+    int m_montantTaxeLuxe;
 
+public:
+    int payerTaxe();
+
+    // Constructeur
+    TaxeDeLuxe(int idCase, std::string categorie, int niveauTaxe, m_categorieEvenement categorieEvenement, int montantTaxeLuxe);
+
+    // Getters et Setters
+    void setMontantTaxeLuxe(int montantTaxeLuxe);
+    int getMontantTaxeLuxe() const;
 };
 
 class Depart : protected Evenement
 {
-
-}; 
+public:
+    // A chaque passage par la case départ, le joueur reçois un bonus fixe.
+    int bonus();
+};
 
 #endif
