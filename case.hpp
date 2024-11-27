@@ -11,7 +11,12 @@ private:
     int m_idCase;
     int m_niveauTaxe;
 
-    std::string m_categorie;
+    enum m_categorie{
+        Gare,
+        Evenement,
+        Compagnie,
+        Terrain
+    };
 
 public:
     // Fonction déterminant le montant de la taxe à prélever.
