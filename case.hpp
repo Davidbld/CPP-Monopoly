@@ -31,36 +31,44 @@ public:
 class Gare : protected Case
 {
 private:
-    std::string m_direction;
+    enum m_direction {
+        Nord,
+        Sud,
+        Est,
+        Ouest
+    };
 
 public:
     // Fonction permettant à un joueur de récupérer la case Gare
     int acheter();
 
     // Constructeur
-    Gare(int idCase, std::string categorie, int niveauTaxe, std::string direction);
+    Gare(int idCase, std::string categorie, int niveauTaxe, m_direction direction);
 
     // Getters et Setters
-    void setDirection(std::string direction);
-    std::string getDirection() const;
+    void setDirection(m_direction direction);
+    m_direction getDirection() const;
 };
 
 // Représente les 2 compagnies d'eau et d'éléctricité.
 class Compagnie : protected Case
 {
 private:
-    std::string m_service;
+    enum m_service{
+        Eau,
+        Electricite
+    };
 
 public:
     // Fonction permettant à un joueur de récupérer la case Compagnie
     int acheter();
 
     // Constructeur
-    Compagnie(int idCase, std::string categorie, int niveauTaxe, std::string service);
+    Compagnie(int idCase, std::string categorie, int niveauTaxe, m_service service);
 
     // Getters et Setters
-    void setService(std::string service);
-    std::string getService() const;
+    void setService(m_service service);
+    m_service getService() const;
 };
 
 // Représente les terrains achetables.
@@ -68,9 +76,24 @@ class Terrains : protected Case
 {
 private:
     std::string m_adresse;
-    std::string m_couleur;
+    enum m_couleur{
+        Fushia,
+        BleuClaire,
+        Violet,
+        Orange,
+        Rouge,
+        Jaune,
+        Vert,
+        BleuFonce
+    };
     int m_prix;
-    std::string m_niveau;
+    enum m_niveau{
+        terrainNu,
+        UneMaison,
+        DeuxMaisons,
+        TroisMaisons,
+        Hotel
+    };
 
 public:
     // Fonction permettant à un joueur de récupérer le Terrains
@@ -79,34 +102,41 @@ public:
     int hypothequer();
 
     // Constructeur
-    Terrains(int idCase, std::string categorie, int niveauTaxe, std::string adresse, std::string couleur, int prix, std::string niveau);
+    Terrains(int idCase, std::string categorie, int niveauTaxe, std::string adresse, m_couleur couleur, int prix, m_niveau niveau);
 
     // Getters et Setters
     void setAdresse(std::string adresse);
     std::string getAdresse() const;
 
-    void setCouleur(std::string couleur);
-    std::string getCouleur() const;
+    void setCouleur(m_couleur couleur);
+    m_couleur getCouleur() const;
 
     void setPrix(int prix);
     int getPrix() const;
 
-    void setNiveau(std::string niveau);
-    std::string getNiveau() const;
+    void setNiveau(m_niveau niveau);
+    m_niveau getNiveau() const;
 };
 
 class Evenement : protected Case
 {
 private:
-    std::string m_categorieEvenement;
+    enum m_categorieEvenement{
+        Communaute,
+        Prison,
+        ParkingGratuit,
+        Chance,
+        TaxeDeLuxe,
+        Depart
+    };
 
 public:
     // Constructeur
-    Evenement(int idCase, std::string categorie, int niveauTaxe, std::string categorieEvenement);
+    Evenement(int idCase, std::string categorie, int niveauTaxe, m_categorieEvenement categorieEvenement);
 
     // Getters et Setters
-    void setCategorieEvenement(std::string categorieEvenement);
-    std::string getCategorieEvenement() const;
+    void setCategorieEvenement(m_categorieEvenement categorieEvenement);
+    m_categorieEvenement getCategorieEvenement() const;
 };
 
 class Communaute : protected Evenement
