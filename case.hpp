@@ -8,8 +8,8 @@
 class Case
 {
 private:
-    int m_idCase;
-    int m_niveauTaxe;
+    int m_idCase = 0;
+    int m_niveauTaxe = 0;
 
     enum m_categorie{
         Gare,
@@ -83,7 +83,7 @@ public:
 class Terrains : protected Case
 {
 private:
-    std::string m_adresse;
+    std::string m_adresse = "";
     enum m_couleur
     {
         Fushia,
@@ -95,7 +95,7 @@ private:
         Vert,
         Bleu_Fonce
     };
-    int m_prix;
+    int m_prix = 0;
     enum m_niveau
     {
         terrain_nu,
@@ -170,7 +170,7 @@ public:
 class Prison : protected Evenement
 {
 private:
-    int m_nbrTourPrison;
+    int m_nbrTourPrison = 0;
 
 public:
     // Fonctions permettant de raccourcir la peine de prison
@@ -189,7 +189,7 @@ public:
 class ParkingGratuit : protected Evenement
 {
 private:
-    int m_montantPlateau;
+    int m_montantPlateau = 0;
 
 public:
     int donnerArgent();
@@ -221,7 +221,7 @@ public:
 class TaxeDeLuxe : protected Evenement
 {
 private:
-    int m_montantTaxeLuxe;
+    int m_montantTaxeLuxe = 0;
 
 public:
     int payerTaxe();
