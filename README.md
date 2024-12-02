@@ -1,11 +1,13 @@
-# C++ Monopoly
+# PROJET EN PAUSE
+
+## C++ Monopoly
 
 Un projet universitaire consistant en la programmation du jeu de plateau Monopoly® en C++
 
 Les règles utilisées ne sont pas exactement les même que le jeu *Monopoly®* originel.
 Malheureusement, nous n'avions pas assez de temps pour reproduire le jeu en détail.
 
-## Règles
+### Règles
 
 Le Monopoly++ fonctionne avec 4 joueurs maximum. Chaque joueur dispose d’un porte-monnaie. Avec ce porte-monnaie, il peut acheter des terrains, des compagnies et des gares. Lorsque qu’un joueur passe sur le terrain d’un autre joueur, celui-ci paye une taxe (*La hauteur de la taxe change en fonction du niveau du terrains : 0 maison, 1 maison, 2 maisons, 3 maisons ou 1 hôtel*). 
 Les joueurs peuvent acheter, améliorer et hypothéquer des terrains :
@@ -25,18 +27,18 @@ Enfin, pour gagner, il faut soit :
 
 Vous perdez lorsque vous n’avez plus d’argent.
 
-## Utilisation
+### Utilisation
 
 ***En cours de conception***
 
-## Nomenclature des *commits*
+### Nomenclature des *commits*
 
 **Add** : Ajout d'une ou plusieurs fonctionnalités.
 **Update** : Mise à jour majeure, correctif majeur... \
 **Fix** : Mise à jour mineure, correctif de bug mineur... \
 **Docs** : Mise à jour de la documentation.
 
-## Licence
+### Licence
 
 Le jeu Monopoly® est une marque déposée appartenant à Hasbro, Inc., protégée par les lois internationales sur la propriété intellectuelle. Ce projet n’a aucun lien officiel ou affiliation avec Hasbro, Inc.
 
@@ -46,7 +48,7 @@ Ce projet n’a pas pour but de générer des revenus ni de tirer profit de la r
 
 Si vous êtes le détenteur de droits ou un représentant d’Hasbro, Inc., et estimez que ce projet viole vos droits, nous vous invitons à nous contacter afin que nous puissions collaborer pour résoudre la situation.
 
-## Contributeurs
+### Contributeurs
 
 David Baldo ([*Davidbld*](https://github.com/Davidbld)) \
 Jérémy Desbois ([*Gookd*](https://github.com/Gookd))
